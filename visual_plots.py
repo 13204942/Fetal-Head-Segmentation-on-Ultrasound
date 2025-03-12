@@ -3,7 +3,7 @@ import seaborn as sns
 import pandas as pd
 
 # read csv file
-csv_file = "./stat_test_data.csv"
+csv_file = "./stat/stat_test_data.csv"
 
 df = pd.read_csv(csv_file)
 
@@ -49,7 +49,7 @@ plt.legend(loc='lower right', fontsize="30")
 
 '''
 # plot bar chart (Dice vs Trainable Layers)
-ax = sns.barplot(x="Trainable Layers", y="Dice",
+ax = sns.barplot(x="Fine-tuning Strategy", y="Dice",
                  hue="Train Size",
                  palette="flare",
                  data=df)
@@ -58,7 +58,7 @@ sns.move_legend(ax, "lower center",
                 bbox_to_anchor=(.5, 0.97),
                 ncol=4, title="Train Size", frameon=False)
 
-plt.xlabel("Trainable Layers", fontsize=30)
+plt.xlabel("Fine-tuning Strategy", fontsize=30)
 plt.ylabel("DSC")
 
 plt.legend(title="Train Size",
@@ -70,5 +70,5 @@ plt.legend(title="Train Size",
 
 
 # display plots
-plt.grid(True)
+plt.grid(False)
 plt.show()
